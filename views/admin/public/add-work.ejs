@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <main>
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-work<% } else { %>add-work<% } %>" method="POST">
+            <div class="form-control">
+                <label for="order">Order</label>
+                <input type="number" name="order" id="order" value="<% if (editing) { %><%= wrk.order %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="school">Name of Company</label>
+                <input type="text" name="company" id="company" value="<% if (editing) { %><%= wrk.company %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="price">Start/End Date</label>
+                <input type="text" name="date" id="date" value="<% if (editing) { %><%= wrk.date %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="degree">Title</label>
+                <input type="text" name="title" id="title" value="<% if (editing) { %><%= wrk.title %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea type="text" name="description" id="description"><% if (editing) { %><%= wrk.description %><% } %></textarea>
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= wrk.id %>" name="workId">
+            <% } %>
+            <div class="button-control">
+                <button class="btn" type="submit"><% if (editing) { %>Update Work<% } else { %>Add Work<% } %></button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/admin">Admin</a>
+        <a class="home-link" href="/">Home</a>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit">Log Out</button>
+        </form>
+    </header>
+    <form class="product-form" action="/admin/skills" method="POST">
+        <div class="form-control">
+            <label for="skillNames">Skills Separated By Spaces</label>
+            <input type="text" name="skillNames" id="skillNames" value="<%= skillNames %>">                
+        </div>
+        <div class="form-control">
+            <label for="skillPercents">Skill Percents Separated By Spaces</label>
+            <input type="text" name="skillPercents" id="skillPercents" value="<%= skillPercents %>">                
+        </div>
+        <div class="button-control">
+            <button class="btn" type="submit">Update Skills Section</button>
+        </div>
+    </form>
+</body>
+</html>

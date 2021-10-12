@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %> </title>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/career.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/nav.css">
+</head>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav" id="navbarCareer">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experiences">Experiences</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#quote">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-section text-center" id="about">
+        <div class="header">
+            <h2 class="text-white">About</h2>
+        </div>
+        <div class="about-image">
+            <img src="<%= imgs.content1 %>" alt='image1'>
+        </div>
+        <div class="about-paragraph">
+            <p class="text-white-50">
+                <%= imgs.content2 %>
+            </p>
+        </div>
+    </section> 
+
+    <section class="experiences-section text-center" id="experiences">
+        <div class="header">
+            <h2 class="text-blue">Experiences</h2>
+        </div>
+        <div class="edu__container">
+            <h3 class="text-blue">Education</h3>
+            <% if (eds.length > 0) { %>
+                <% for (let ed of eds) { %>
+                <div class="edu__float">
+                    <div class="card__school">
+                        <b><%= ed.school %></b>
+                        <h5><%= ed.date %></h5>
+                    </div>
+                    <div class="card__degree">
+                        <b><%= ed.degree %></b>
+                        <p><%= ed.description %></p>
+                    </div>
+                </div>
+                <% } %>
+            <% } else { %>
+                <h1>No Education Found!</h1>
+            <% } %>
+            <br/>
+            <hr>
+            <br/>
+        </div>
+        <div class="edu__container">
+            <h3 class="text-blue">Work Experience</h3>
+            <% if (wrks.length > 0) { %>
+                <% for (let wrk of wrks) { %>
+                <div class="edu__float">
+                    <div class="card__school">
+                        <b><%= wrk.company %></b>
+                        <h5><%= wrk.date %></h5>
+                    </div>
+                    <div class="card__degree">
+                        <b><%= wrk.title %></b>
+                        <p><%= wrk.description %></p>
+                    </div>
+                </div>
+                <% } %>
+            <% } else { %>
+                <h1>No Work Experience Found!</h1>
+            <% } %>
+        </div>
+    </section>
+
+    <section class="skills-section text-center" id="skills">
+        <div class="header">
+            <h2 class="text-white">Skills</h2>
+        </div>
+        <div>
+            <div class="float">
+                <ul class="chart">
+                    <% for (var i = 0; i < skillNames.length; i++) { %>
+                        <li>
+                            <span class="text-white-50" style="height:<%= skillPercents[i] %>%" title="<%= skillNames[i] %>"></span>
+                        </li> 
+                    <% } %>
+                    
+
+                </ul>   
+                <div class="chart__labels">
+                    <li><span>I'm a wizard</span></li>
+                    <li><span>Very proficient</span></li>
+                    <li><span>Fairly competent</span></li>
+                    <li><span>Just a rookie</span></li>
+                    <li><span>Complete newb</span></li>             
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section text-center" id="projects">
+        <div class="header">
+            <h2 class="text-blue">Projects</h2>
+        </div>
+        <% for (var i = 0; i < projects.length; i++) { %>
+        <div class="project__card">
+            <% if (i % 2 === 0) { %>
+            <div class="left-img__card">
+                <img src="<%= projects[i].image %>" alt='image'>
+            </div>
+            <div class="right-txt__card">
+                <b><%= projects[i].title %></b>
+                <h5><%= projects[i].description %></h5>
+            </div>
+
+            <% } else { %>
+
+            <div class="left-txt__card">
+                <b><%= projects[i].title %></b>
+                <h5><%= projects[i].description %></h5>
+            </div>
+            <div class="right-img__card">
+                <img src="<%= projects[i].image %>" alt='image'>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </section>
+
+    <section class="quote-section" id="quote">
+        <div class="quote__card">
+            <p>
+                <%= contacts.quote %>
+            </p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact__row">
+            <div class="contact__card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>Location</h4>
+                <hr class="hr-4">
+                <div class="small text-black-50"><%= contacts.location %></div>
+            </div>
+            <div class="contact__card">
+                <i class="fas fa-envelope text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Email</h4>
+                <hr class="my-4" />
+                <div class="small text-black-50"><%= contacts.email %></div>
+            </div>
+            <div class="contact__card">
+                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Phone</h4>
+                <hr class="my-4" />
+                <div class="small text-black-50"><%= contacts.phone %></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer class="footer small text-center text-white-50"><div class="container">Copyright © Your Website 2020</div></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/js/scripts.js"></script>
+
+</body>
+
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    datasets: [{
+    label: '# of Votes',
+    data: [12, 19, 3, 5, 2, 3],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(255, 159, 64, 0.2)'
+    ],
+    borderColor: [
+    'rgba(255,99,132,1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)'
+    ],
+    borderWidth: 1
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
+    }
+    }]
+    }
+    }
+    });
+</script>
+</html>

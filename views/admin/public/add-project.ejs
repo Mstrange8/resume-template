@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <main>
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-project<% } else { %>add-project<% } %>" method="POST">
+            <div class="form-control">
+                <label for="order">Order</label>
+                <input type="number" name="order" id="order" value="<% if (editing) { %><%= project.order %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="title">Project Title</label>
+                <input type="text" name="title" id="title" value="<% if (editing) { %><%= project.title %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="image">Image</label>
+                <input type="text" name="image" id="image" value="<% if (editing) { %><%= project.image %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea type="text" name="description" id="description"><% if (editing) { %><%= project.description %><% } %></textarea>
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= project.id %>" name="projectId">
+            <% } %>
+            <div class="button-control">
+                <button class="btn" type="submit"><% if (editing) { %>Update Project<% } else { %>Add Project<% } %></button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

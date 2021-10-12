@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  padding: 1rem;
+  margin: auto;
+}
+
+form {
+  display: inline;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #00695c;
+  height: 5rem;
+  vertical-align: middle;
+}
+
+.header a {
+  position: relative;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: x-large;
+  margin: auto 2rem;
+}
+
+.header .home-link {
+  margin-left: auto;
+}
+
+.header form {
+  position: relative;
+  margin: auto 2rem;
+}
+
+.header button {
+  color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  font-size: x-large;
+  outline: none;
+}
+
+.form-control {
+    margin: 1rem 0;
+  }
+  
+.form-control label,
+.form-control input,
+.form-control textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.form-control input,
+.form-control textarea {
+  border: 1px solid #a1a1a1;
+  font: inherit;
+  border-radius: 2px;
+}
+
+.form-control textarea {
+    height: 10rem;
+    text-align: left;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline-color: #00695c;
+}
+
+.product-form {
+    width: 30rem;
+    max-width: 90%;
+    margin: auto;
+    display: block;
+}
+
+.button-control {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    text-decoration: none;
+    font: inherit;
+    border: 1px solid #00695c;
+    color: #00695c;
+    background: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+background-color: #00695c;
+color: white;
+}
+
+.edu-card {
+    width: 100rem;;
+    height: auto;
+    max-width: 90%;
+    margin: auto;
+    display: inline-block;
+    margin: 2rem;
+}
+
+.edu-card .card__order {
+    height: auto;
+    width: 5%;
+    position: relative;
+    float: left;
+    text-align: center;
+    padding: 1rem;
+}
+
+.edu-card .card__school {
+    min-width: 10rem;
+    height: auto;
+    width: 30%;
+    position: relative; 
+    float: left;
+    padding: 1rem;
+}
+
+.edu-card .card__degree {
+    max-width: 30rem;
+    height: auto;
+    width: 40%;
+    position: relative; 
+    float: left;
+    padding: 1rem;
+}
+
+.edu-card .card__actions {
+    min-width: 5rem;
+    width: 25%;
+    height: auto;
+    position: relative;
+    float: left;
+    padding: 1rem;
+    text-align: right;
+}
+
+.proj__card {
+    width: 100rem;;
+    height: auto;
+    max-width: 60%;
+    margin: auto;
+    margin: 2rem;
+}
+
+.proj__card .card__order {
+    height: auto;
+    width: 100%;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.proj__card .card__title {
+    height: auto;
+    width: 100%;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.proj__card .card__image {
+    height: auto;
+    width: 100%;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.proj__card .card__description {
+    height: auto;
+    width: 100%;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.proj__card .card__actions {
+    width: 100%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    float: left;
+    padding: 2rem;
+}
+
+.card__button {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card__button a {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+}

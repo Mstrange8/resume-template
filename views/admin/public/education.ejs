@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/admin">Admin</a>
+        <a href="/admin/add-education">Add Education</a>
+        <a class="home-link" href="/">Home</a>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit">Log Out</button>
+        </form>
+    </header>
+    <% if (eds.length > 0) { %>
+        <div class="grid">
+            <% for (let ed of eds) { %>
+            <article class="card edu-card">
+                <div class="card__order">
+                    <h2><%= ed.order %></h2>
+                </div>
+                <div class="card__school">
+                    <b><%= ed.school %></b>
+                    <h5><%= ed.date %></h5>
+                </div>
+                <div class="card__degree">
+                    <b><%= ed.degree %></b>
+                    <h5><%= ed.description %></h5>
+                </div>
+                <div class="card__actions">
+                    <a href="/admin/edit-education/<%= ed.id %>?edit=true" class="btn">Edit</a>
+                    <br><br/>
+                    <form action="/admin/delete-education" method="POST">
+                        <input type="hidden" value="<%= ed.id %>" name="educationId">
+                        <button class="btn" type="submit">Delete</button>                    
+                    </form>
+                </div>
+            </article>
+            <% } %>
+        </div>
+    <% } else { %>
+        <h1>No Education Found!</h1>
+    <% } %>
+</body>
+</html>

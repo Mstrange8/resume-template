@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <main>
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-education<% } else { %>add-education<% } %>" method="POST">
+            <div class="form-control">
+                <label for="order">Order</label>
+                <input type="number" name="order" id="order" value="<% if (editing) { %><%= ed.order %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="school">Name of School</label>
+                <input type="text" name="school" id="school" value="<% if (editing) { %><%= ed.school %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="price">Start/End Date</label>
+                <input type="text" name="date" id="date" value="<% if (editing) { %><%= ed.date %><% } %>">                
+            </div>
+            <div class="form-control">
+                <label for="degree">Degree Name</label>
+                <input type="text" name="degree" id="degree" value="<% if (editing) { %><%= ed.degree %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea type="text" name="description" id="description"><% if (editing) { %><%= ed.description %><% } %></textarea>
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= ed.id %>" name="educationId">
+            <% } %>
+            <div class="button-control">
+                <button class="btn" type="submit"><% if (editing) { %>Update Education<% } else { %>Add Education<% } %></button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

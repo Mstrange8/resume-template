@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/">Home</a>
+    </header>
+    <% if (messages.error) { %>
+        <%= messages.error %>
+    <% } %>
+    <form class="product-form" action="/login" method="POST">
+        <div class="form-control">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div class="button-control">
+            <button class="btn" type="submit">Login</button>
+        </div>
+    </form>
+
+</body>
+</html>

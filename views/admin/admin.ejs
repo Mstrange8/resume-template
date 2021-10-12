@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/admin/about">About</a>
+        <a href="/admin/education">Education</a>
+        <a href="/admin/work">Work</a>
+        <a href="/admin/skills">Skills</a>
+        <a href="/admin/projects">Projects</a>
+        <a href="/admin/contact">Contact</a>
+        <a class="home-link" href="/">Home</a>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit">Log Out</button>
+        </form>
+    </header>
+</body>
+</html>
